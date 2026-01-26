@@ -45,7 +45,7 @@ This project demonstrates **Python programming**, **LLM integration**, and **ter
 - Designed for local LLM usage (Ollama + Llama3)
 
 ---
-**Memory Management in the AI Assistant**
+**Memory Management in the AI Assistant (1st upgradation)**
 
 This project implements conversational memory to allow the local LLM to understand and respond to follow-up questions naturally. Instead of treating every user input as a new conversation, the assistant maintains a history of recent user questions and AI responses. To prevent unlimited memory growth—which can degrade performance and increase context confusion—a sliding window memory strategy is used. Only the most recent interactions are retained, ensuring relevant context is preserved while keeping the system efficient and stable. This approach mirrors how real-world LLM-based chat systems manage conversational context.
 
