@@ -63,35 +63,3 @@ This project implements conversational memory to allow the local LLM to understa
 <img width="418" height="204" alt="Screenshot 2026-01-19 at 21 11 34" src="https://github.com/user-attachments/assets/fe1ba292-dc28-4010-bc9c-f29a1514e0f1" />
 
 
----
-
-## ⚡ Setup Instructions
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/saikatgayen/AI_study_helper.git
-cd AI_study_helper
-
-2. **Setup Python virtual env** 
-python -m venv venv
-source venv/bin/activate  # On Mac/Linux
-# OR
-venv\Scripts\activate     # On Windows
-
-3. **Install Python dependencies**
-pip install -r requirements.txt
-
-4. **Install Ollama and pull Llama3 model**
-# Install Ollama: https://ollama.com/
-ollama pull llama3
-
-5. **Run the Study Helper**
-python app.py
-
-Notes
-
-Models are not included in the repository due to size constraints. Users must download Llama3 locally.
-
-Ensure Ollama is installed and running before starting the project.
-
-Designed for terminal/CLI usage. GUI integration can be added later.
