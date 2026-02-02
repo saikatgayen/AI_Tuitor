@@ -6,8 +6,7 @@ The application allows users to ask study-related questions directly from the co
 This project demonstrates how to integrate local large language models into Python applications, design interactive CLI tools, and build AI-powered learning utilities using terminal-based workflows.
 
 ## Why This Project?
-
-Most beginners interact with AI only through web interfaces.  
+  
 This project focuses on running and controlling a large language model locally, giving full control over data, performance, and interaction flow.
 
 It highlights practical skills such as:

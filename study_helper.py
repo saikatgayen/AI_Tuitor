@@ -1,27 +1,19 @@
-from ollama import chat
-from datetime import datetime
+from ollama import chat 
 
-print("AI TUITOR")
-print("Type 'exit' to quit.\n")
+MAX_MEMORY = 6
+
 
 conversation = []                                                  #----Conversation Memory----
 max_memory_messages = 6
 
-<<<<<<< Updated upstream
+
 def save_to_file(question, answer):                              #--------Save Notes----- 
     with open("notes.txt", "a", encoding="utf-8") as file:
         file.write("\n" + "=" * 50 + "\n")
         file.write(f"Time: {datetime.now()}\n")
         file.write(f"Question: {question}\n\n")
         file.write(f"Answer:{answer}\n\n")
-=======
-def save_to_file(questions, ansters):                              #--------Save Notes----- 
-  with open("notes.txt", "a", encoding="utf-8") as file:
-    file.write("\n" + "=" * 50 + "\n")
-    file.write(f"Time: {datetime.now()}\n")
-    file.write(f"Question: {questions}\n\n")
-    file.write(f"Answer:{answer}\n\n")
->>>>>>> Stashed changes
+
 
 while True:                                           #------Maiin Loop---------
     question = input("Ask a study question: ")
@@ -32,50 +24,39 @@ while True:                                           #------Maiin Loop---------
 
 						        #---------ADD user question to memory------
     conversation.append({
-<<<<<<< Updated upstream
         "role": "user",
         "content": question
-=======
-    "role": "user",
-    "content": question
->>>>>>> Stashed changes
     })
 
   #send FULL conversation to the model
 
     response = chat(
-<<<<<<< Updated upstream
         model="llama3",
         messages= conversation
-=======
-          model="llama3",
-          messages= conversation
->>>>>>> Stashed changes
     )
 
     answer = response["message"]["content"]
 
-<<<<<<< Updated upstream
 	                                                   #----------add AI answer to memory-----------
-
     conversation.append({
         "role": "assistant",
         "content": answer
-=======
-  # add AI answer to memory
-
-    conversation.append({
-    "role": "assistant",
-    "content": answer
->>>>>>> Stashed changes
     })
 								
-    if len(conversation) > max_memory_messages:		#--------Memory Mangament---------------
-        conversation = conversation[-max_memory_messages:]
+def ai_response(conversation):
+        conversation = conversation[-MAX_MEMORY:]
 
 
-    print("\n Answer:\n")
-    print(answer)
-    print("\n" + "-" * 147 + "\n")
+        response = chat(
+                model = "llama3",
+                messages = conversation
+        )
 
-    save_to_file(question, answer)
+        return response["message"]["content"], conversation
+
+
+def save_notes(question, answer, filename="notes.txt"):
+        with open(filename, "a") as f:
+             f.write(f"Q: {question}\n")
+             f.write(f"A: {answer}\n")
+             f.write("-" * 40 + "\n")
